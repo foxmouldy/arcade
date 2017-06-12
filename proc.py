@@ -71,10 +71,11 @@ class session:
         script = []
         script.append(full_command)
         try:
-            self.casa.run_script(script, timeout=timeout)
+            output = self.casa.run_script(script, timeout=timeout)
             print "Appears to have ended.\n"
         except:
             print "Something's gone wrong... Check your command.\n"
+        return output
 
     def see_help(self, task=None):
         if self.show_output is True:
