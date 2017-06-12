@@ -38,7 +38,7 @@ class session:
         else:
             print "Either logfile or working_dir has not been defined."
 
-    def run_casa(self, task=None, **kwargs):
+    def run_casa(self, task=None, timeout=None, **kwargs):
     
         '''
         run_casa(task=None, **kwargs)
@@ -71,7 +71,7 @@ class session:
         script = []
         script.append(full_command)
         try:
-            self.casa.run_script(script)
+            self.casa.run_script(script, timeout=timeout)
             print "Appears to have ended.\n"
         except:
             print "Something's gone wrong... Check your command.\n"
